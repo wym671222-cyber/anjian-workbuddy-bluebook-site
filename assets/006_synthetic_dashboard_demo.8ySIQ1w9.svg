@@ -1,0 +1,286 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" text-rendering="geometricPrecision" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f7f8fa"/>
+      <stop offset="100%" stop-color="#eef0f4"/>
+    </linearGradient>
+    <linearGradient id="trendArea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a90e2" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#4a90e2" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="barFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5cb85c"/>
+      <stop offset="100%" stop-color="#4cae4c"/>
+    </linearGradient>
+    <linearGradient id="negBar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d9534f"/>
+      <stop offset="100%" stop-color="#c9302c"/>
+    </linearGradient>
+    <linearGradient id="chatInput" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f9fafb"/>
+    </linearGradient>
+
+    <!-- Typing cursor animation -->
+    <symbol id="cursor" viewBox="0 0 2 16">
+      <rect x="0" y="0" width="2" height="16" fill="#4a90e2">
+        <animate attributeName="opacity" values="1;0;1" dur="0.8s" repeatCount="indefinite"/>
+      </rect>
+    </symbol>
+  </defs>
+
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      animate, animateTransform, animateMotion { display: none; }
+      * { animation: none !important; }
+    }
+  </style>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="800" height="520" fill="url(#bg)"/>
+
+  <!-- Synthetic sample watermark -->
+  <g>
+    <rect x="640" y="14" width="142" height="22" rx="11" fill="#fff7e6" stroke="#faad14" stroke-width="1"/>
+    <text x="711" y="29" text-anchor="middle" font-size="11" fill="#ad6800" font-weight="600">合成示例 · 非真实数据</text>
+  </g>
+
+  <!-- Header -->
+  <text x="24" y="32" font-size="16" font-weight="700" fill="#1f2937">WorkBuddy 生成可交互 HTML 看板</text>
+  <text x="24" y="48" font-size="11" fill="#6b7280">演示流程：输入提示词 → 数据体检 → 生成看板 → 筛选交互</text>
+
+  <!-- ============ Phase 1: Chat input (0-3s) ============ -->
+  <g opacity="1">
+    <animate attributeName="opacity" values="1;1;1;1;0;0;0;0;0;0;0;0" keyTimes="0;0.05;0.1;0.3;0.35;0.4;0.6;0.7;0.8;0.9;0.95;1" dur="10s" repeatCount="indefinite"/>
+
+    <rect x="24" y="64" width="752" height="200" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="36" y="88" font-size="12" font-weight="600" fill="#1f2937">WorkBuddy 对话框</text>
+
+    <!-- User message bubble -->
+    <rect x="48" y="100" width="700" height="68" rx="8" fill="#e0f2fe" stroke="#bae6fd" stroke-width="1"/>
+    <text x="60" y="120" font-size="11" fill="#075985" font-weight="600">我：</text>
+
+    <!-- Typing text animation -->
+    <g>
+      <text x="60" y="138" font-size="11" fill="#0c4a6e" opacity="0">
+        请基于 synthetic-monthly-sales.csv 生成可交互 HTML 看板，包含趋势折线图、
+        <animate attributeName="opacity" values="0;0;1;1;1;1;1;1;1;1;1;1" keyTimes="0;0.05;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;1" dur="10s" repeatCount="indefinite"/>
+      </text>
+      <text x="60" y="154" font-size="11" fill="#0c4a6e" opacity="0">
+        区域占比饼图、Top5 柱状图，负值不得隐藏。
+        <animate attributeName="opacity" values="0;0;0;0;1;1;1;1;1;1;1;1" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.35;0.4;0.45;0.5;0.55;1" dur="10s" repeatCount="indefinite"/>
+      </text>
+      <use href="#cursor" x="430" y="142">
+        <animate attributeName="opacity" values="1;1;1;1;0;0;0;0;0;0;0;0" keyTimes="0;0.1;0.2;0.3;0.35;0.4;0.5;0.6;0.7;0.8;0.9;1" dur="10s" repeatCount="indefinite"/>
+      </use>
+    </g>
+
+    <!-- Send button -->
+    <g>
+      <animate attributeName="opacity" values="0;0;0;0;1;1;0;0;0;0;0;0" keyTimes="0;0.1;0.2;0.3;0.35;0.4;0.45;0.5;0.6;0.7;0.8;1" dur="10s" repeatCount="indefinite"/>
+      <rect x="690" y="180" width="50" height="22" rx="4" fill="#4a90e2"/>
+      <text x="715" y="195" text-anchor="middle" font-size="10" fill="#ffffff" font-weight="600">发送</text>
+    </g>
+
+    <!-- Phase indicator -->
+    <text x="36" y="232" font-size="10" fill="#6b7280">阶段 1/4 · 输入提示词</text>
+    <rect x="36" y="240" width="120" height="4" rx="2" fill="#e5e7eb"/>
+    <rect x="36" y="240" width="30" height="4" rx="2" fill="#4a90e2"/>
+  </g>
+
+  <!-- ============ Phase 2: Data inspection (3-5s) ============ -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;0;0;0;1;1;1;1;0;0;0" keyTimes="0;0.1;0.2;0.3;0.4;0.45;0.5;0.55;0.6;0.65;0.7;1" dur="10s" repeatCount="indefinite"/>
+
+    <rect x="24" y="64" width="752" height="200" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="36" y="88" font-size="12" font-weight="600" fill="#1f2937">数据体检（只读检查）</text>
+
+    <!-- AI response bubble -->
+    <rect x="48" y="100" width="700" height="140" rx="8" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="60" y="120" font-size="11" fill="#374151" font-weight="600">WorkBuddy：</text>
+
+    <text x="60" y="138" font-size="10" fill="#4b5563">✓ 字段：日期、区域、产品、销售额、订单数</text>
+    <text x="60" y="154" font-size="10" fill="#4b5563">✓ 记录数：5 行 · 空值：0 · 重复行：0</text>
+    <text x="60" y="170" font-size="10" fill="#4b5563">✓ 日期范围：2026-07-01 ~ 2026-07-05</text>
+    <text x="60" y="186" font-size="10" fill="#d97706">⚠ 检测到负值：2026-07-05 华北 产品 B 销售额 -320 元</text>
+    <text x="60" y="202" font-size="10" fill="#4b5563">→ 拟展示维度：时间趋势、区域占比、产品排名</text>
+    <text x="60" y="218" font-size="10" fill="#4b5563">→ 异常处理：保留并单独标注，不删除、不补零</text>
+
+    <text x="36" y="252" font-size="10" fill="#6b7280">阶段 2/4 · 数据体检</text>
+    <rect x="36" y="260" width="120" height="4" rx="2" fill="#e5e7eb"/>
+    <rect x="36" y="260" width="60" height="4" rx="2" fill="#4a90e2"/>
+  </g>
+
+  <!-- ============ Phase 3-4: Dashboard + filter interaction (5-10s) ============ -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;1;1;1" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.55;0.6;0.65;0.7;0.75;1" dur="10s" repeatCount="indefinite"/>
+
+    <!-- Dashboard title bar -->
+    <rect x="24" y="64" width="752" height="34" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="36" y="85" font-size="13" font-weight="700" fill="#1f2937">销售数据可视化看板</text>
+    <text x="240" y="85" font-size="10" fill="#6b7280">来源：synthetic-monthly-sales.csv · 5 行 · 更新：2026-07-27</text>
+
+    <!-- Filter bar -->
+    <rect x="24" y="104" width="752" height="34" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="40" y="125" font-size="11" fill="#4b5563" font-weight="600">筛选：</text>
+
+    <!-- Filter 1: 区域 (animated selection) -->
+    <g>
+      <rect x="84" y="112" width="120" height="22" rx="4" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1"/>
+      <text x="94" y="127" font-size="11" fill="#374151">区域 ▾</text>
+      <!-- Pulsing border to indicate interaction -->
+      <rect x="84" y="112" width="120" height="22" rx="4" fill="none" stroke="#4a90e2" stroke-width="2" opacity="0">
+        <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;1;0;1;0;1;0;1" keyTimes="0;0.5;0.55;0.6;0.65;0.7;0.75;0.8;0.85;0.88;0.91;0.94;0.97;1" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      </rect>
+    </g>
+
+    <rect x="214" y="112" width="120" height="22" rx="4" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1"/>
+    <text x="224" y="127" font-size="11" fill="#374151">产品 ▾</text>
+
+    <rect x="344" y="112" width="120" height="22" rx="4" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1"/>
+    <text x="354" y="127" font-size="11" fill="#374151">时间粒度：日 ▾</text>
+
+    <!-- Trend chart -->
+    <rect x="24" y="148" width="372" height="180" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="36" y="168" font-size="12" font-weight="600" fill="#1f2937">图 1 · 销售趋势折线图</text>
+    <text x="36" y="182" font-size="10" fill="#6b7280">单位：元 · 负值为退货冲正（不得隐藏）</text>
+
+    <line x1="60" y1="204" x2="380" y2="204" stroke="#9ca3af" stroke-width="1"/>
+    <line x1="60" y1="204" x2="60" y2="306" stroke="#9ca3af" stroke-width="1"/>
+    <text x="56" y="208" text-anchor="end" font-size="9" fill="#6b7280">0</text>
+    <text x="56" y="252" text-anchor="end" font-size="9" fill="#6b7280">800</text>
+    <text x="56" y="306" text-anchor="end" font-size="9" fill="#6b7280">-400</text>
+    <line x1="60" y1="250" x2="380" y2="250" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2,2"/>
+    <line x1="60" y1="296" x2="380" y2="296" stroke="#d1d5db" stroke-width="1"/>
+
+    <!-- Animated trend line drawing -->
+    <path d="M 80,224 L 150,244 L 220,209 L 290,269 L 360,289" fill="none" stroke="#4a90e2" stroke-width="2" stroke-dasharray="400" stroke-dashoffset="400">
+      <animate attributeName="stroke-dashoffset" values="0;0;0;0;0;0;0;0;0;400;0;0" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.85;0.9;1" dur="10s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- Points appearing one by one -->
+    <circle cx="80" cy="224" r="3" fill="#4a90e2" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;1;1;1" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.85;0.9;1" dur="10s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150" cy="244" r="3" fill="#4a90e2" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;1;1;1" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.86;0.9;1" dur="10s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="220" cy="209" r="3" fill="#4a90e2" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;1;1;1" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.87;0.9;1" dur="10s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="290" cy="269" r="3" fill="#4a90e2" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;1;1;1" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.88;0.9;1" dur="10s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Negative point (always visible once dashboard appears) -->
+    <circle cx="360" cy="289" r="3.5" fill="#d9534f" stroke="#fff" stroke-width="1.5" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;1;1;1" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.89;0.9;1" dur="10s" repeatCount="indefinite"/>
+    </circle>
+    <line x1="360" y1="289" x2="360" y2="306" stroke="#d9534f" stroke-width="1" stroke-dasharray="2,2" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;1;1;1" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.89;0.9;1" dur="10s" repeatCount="indefinite"/>
+    </line>
+    <text x="358" y="316" text-anchor="end" font-size="9" fill="#d9534f" font-weight="600" opacity="0">
+      退货冲正 -320
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;1;1;1" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.9;0.95;1" dur="10s" repeatCount="indefinite"/>
+    </text>
+
+    <text x="80" y="322" text-anchor="middle" font-size="9" fill="#6b7280">07-01</text>
+    <text x="150" y="322" text-anchor="middle" font-size="9" fill="#6b7280">07-02</text>
+    <text x="220" y="322" text-anchor="middle" font-size="9" fill="#6b7280">07-03</text>
+    <text x="290" y="322" text-anchor="middle" font-size="9" fill="#6b7280">07-04</text>
+    <text x="360" y="322" text-anchor="middle" font-size="9" fill="#6b7280">07-05</text>
+
+    <!-- Pie chart -->
+    <rect x="404" y="148" width="372" height="180" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="416" y="168" font-size="12" font-weight="600" fill="#1f2937">图 2 · 区域销售额占比</text>
+    <text x="416" y="182" font-size="10" fill="#6b7280">单位：% · 按销售额合计计算</text>
+
+    <!-- Pie (rotates in) -->
+    <g transform="translate(500,249)">
+      <g opacity="0">
+        <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;1;1;1" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.9;0.95;1" dur="10s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate" values="-90;0" dur="0.6s" begin="8s" repeatCount="indefinite" fill="freeze"/>
+        <path d="M 0,0 L 0,-50 A 50,50 0 0,1 47.55,-15.45 Z" fill="#4a90e2"/>
+        <path d="M 0,0 L 47.55,-15.45 A 50,50 0 0,1 29.39,40.45 Z" fill="#5cb85c"/>
+        <path d="M 0,0 L 29.39,40.45 A 50,50 0 0,1 -29.39,40.45 Z" fill="#f0ad4e"/>
+        <path d="M 0,0 L -29.39,40.45 A 50,50 0 0,1 -47.55,-15.45 Z" fill="#d9534f"/>
+        <path d="M 0,0 L -47.55,-15.45 A 50,50 0 0,1 0,-50 Z" fill="#9ca3af"/>
+        <circle cx="0" cy="0" r="22" fill="#ffffff"/>
+        <text x="0" y="-2" text-anchor="middle" font-size="10" font-weight="600" fill="#374151">合计</text>
+        <text x="0" y="12" text-anchor="middle" font-size="11" font-weight="700" fill="#1f2937">4260</text>
+      </g>
+    </g>
+
+    <!-- Legend -->
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;1;1;1" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.92;0.96;1" dur="10s" repeatCount="indefinite"/>
+      <g transform="translate(600,204)">
+        <rect x="0" y="0" width="10" height="10" fill="#4a90e2"/><text x="14" y="9" font-size="10" fill="#374151">华北 30.0%</text>
+        <rect x="0" y="16" width="10" height="10" fill="#5cb85c"/><text x="14" y="25" font-size="10" fill="#374151">华东 23.0%</text>
+        <rect x="0" y="32" width="10" height="10" fill="#f0ad4e"/><text x="14" y="41" font-size="10" fill="#374151">华南 36.6%</text>
+        <rect x="0" y="48" width="10" height="10" fill="#d9534f"/><text x="14" y="57" font-size="10" fill="#374151">华中 17.8%</text>
+        <rect x="0" y="64" width="10" height="10" fill="#9ca3af"/><text x="14" y="73" font-size="10" fill="#374151">退货 -7.5%</text>
+      </g>
+    </g>
+
+    <!-- Top5 bar -->
+    <rect x="24" y="338" width="372" height="160" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="36" y="358" font-size="12" font-weight="600" fill="#1f2937">图 3 · 产品销售额 Top5 柱状图</text>
+    <text x="36" y="372" font-size="10" fill="#6b7280">单位：元 · 含负值（退货冲正单独标注）</text>
+
+    <!-- Bars growing animation -->
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;1;1;1" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.9;0.95;1" dur="10s" repeatCount="indefinite"/>
+
+      <rect x="60" y="394" width="40" height="0" fill="url(#barFill)">
+        <animate attributeName="height" values="0;0;0;0;0;0;0;0;0;100;100;100" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.9;0.95;1" dur="10s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="494;494;494;494;494;494;494;494;494;394;394;394" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.9;0.95;1" dur="10s" repeatCount="indefinite"/>
+      </rect>
+      <text x="80" y="389" text-anchor="middle" font-size="10" fill="#374151" font-weight="600">1560</text>
+      <text x="80" y="506" text-anchor="middle" font-size="9" fill="#6b7280">产品 A</text>
+
+      <rect x="130" y="432" width="40" height="0" fill="url(#barFill)">
+        <animate attributeName="height" values="0;0;0;0;0;0;0;0;0;62;62;62" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.91;0.95;1" dur="10s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="494;494;494;494;494;494;494;494;494;432;432;432" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.91;0.95;1" dur="10s" repeatCount="indefinite"/>
+      </rect>
+      <text x="150" y="427" text-anchor="middle" font-size="10" fill="#374151" font-weight="600">980</text>
+      <text x="150" y="506" text-anchor="middle" font-size="9" fill="#6b7280">产品 B</text>
+
+      <rect x="200" y="457" width="40" height="0" fill="url(#barFill)">
+        <animate attributeName="height" values="0;0;0;0;0;0;0;0;0;37;37;37" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.92;0.95;1" dur="10s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="494;494;494;494;494;494;494;494;494;457;457;457" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.92;0.95;1" dur="10s" repeatCount="indefinite"/>
+      </rect>
+      <text x="220" y="452" text-anchor="middle" font-size="10" fill="#374151" font-weight="600">760</text>
+      <text x="220" y="506" text-anchor="middle" font-size="9" fill="#6b7280">产品 C</text>
+
+      <rect x="270" y="486" width="40" height="0" fill="url(#negBar)">
+        <animate attributeName="height" values="0;0;0;0;0;0;0;0;0;8;8;8" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.93;0.95;1" dur="10s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="494;494;494;494;494;494;494;494;494;486;486;486" keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.93;0.95;1" dur="10s" repeatCount="indefinite"/>
+      </rect>
+      <text x="290" y="481" text-anchor="middle" font-size="10" fill="#d9534f" font-weight="600">-320</text>
+      <text x="290" y="506" text-anchor="middle" font-size="9" fill="#6b7280">产品 B（退货）</text>
+    </g>
+
+    <!-- Meta card -->
+    <rect x="404" y="338" width="372" height="160" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="416" y="358" font-size="12" font-weight="600" fill="#1f2937">异常保留区与元信息</text>
+    <text x="416" y="372" font-size="10" fill="#6b7280">不得删除负值或异常行；元信息可追溯到来源文件</text>
+
+    <rect x="416" y="384" width="348" height="46" rx="4" fill="#fef2f2" stroke="#fecaca" stroke-width="1"/>
+    <text x="424" y="400" font-size="10" font-weight="600" fill="#b91c1c">⚠ 异常保留</text>
+    <text x="424" y="414" font-size="10" fill="#7f1d1d">2026-07-05 华北 产品 B 销售额 -320 元（退货冲正）</text>
+    <text x="424" y="426" font-size="10" fill="#7f1d1d">未删除、未补零、未抹平；在看板中单独标注</text>
+
+    <rect x="416" y="438" width="348" height="50" rx="4" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1"/>
+    <text x="424" y="454" font-size="10" font-weight="600" fill="#075985">📋 dashboard-meta.md</text>
+    <text x="424" y="468" font-size="10" fill="#0c4a6e">来源：synthetic-monthly-sales.csv · 5 行 · 5 字段</text>
+    <text x="424" y="482" font-size="10" fill="#0c4a6e">总销售额：4260 元（含退货 -320 元）</text>
+
+    <!-- Phase indicator -->
+    <text x="416" y="504" font-size="10" fill="#6b7280">阶段 4/4 · 看板生成完成</text>
+    <rect x="416" y="510" width="120" height="4" rx="2" fill="#e5e7eb"/>
+    <rect x="416" y="510" width="120" height="4" rx="2" fill="#5cb85c"/>
+  </g>
+
+  <!-- Phase indicator bar at bottom -->
+  <text x="24" y="490" font-size="10" fill="#9ca3af">演示循环：10 秒 · 输入 → 体检 → 生成 → 交互</text>
+</svg>

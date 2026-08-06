@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://wym671222-cyber.github.io/anjian-workbuddy-bluebook-site/sitemap.xml
